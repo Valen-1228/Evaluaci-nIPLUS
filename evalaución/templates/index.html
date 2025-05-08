@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Posts</title>
+    </head>
+    <body>
+        <h1>Listado de Posts</h1>
+        <form method="get" action="/buscar">
+            <input type="text" name="nombre" placeholder="Buscar por nombre" value="{{ request.args.get('nombre', '') }}">
+            <button type="submit">Buscar</button>
+        </form>
+                <ul>
+            {% for post in posts %}
+                <li>
+                    <h3>Usuario: {{ post.name }}</h3>
+                    <p>Contraseña: {{ post.password }}</p>
+                    <p>Servicio: {{ post.service }}</p>
+                    <p>Perfil: {{ post.profile }}</p>
+                    <p>Comentario: {{ post.comment }}</p>
+                </li>
+            {% endfor %}
+        </ul>
+    </body>
+</html>
